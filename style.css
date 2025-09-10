@@ -1,0 +1,587 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin-top: 5%;
+  margin-left: 0%;
+  padding: 0;
+  background: url('Images/Screenshot 2025-09-04 184400.png');
+  font-family: system-ui, Arial, sans-serif;
+  color: #fff;
+  background-size: cover;
+  background-color: rgba(0,0,0,0.6); /* overlay */
+  background-blend-mode: multiply;
+ 
+}
+
+
+
+
+
+
+  
+ 
+
+
+
+/* Navigation Bar */
+.navbar
+ {
+    height : 45px;
+    width: 100%;
+    background-color: #000000;
+    display:flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgb(52, 50, 50);
+    position: fixed;
+    padding: 3px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    top: 0%;
+
+}
+
+.nav-links {
+  flex: 2;
+  display: flex;
+  
+
+ 
+  justify-content: center; 
+  gap : 35px;
+  margin-left: 7%;
+  transition: opacity 0.4s ease;
+
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  font-family: Sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 5px;
+  
+}
+
+/* Animation for nav-item text */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);  /* comes from bottom */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);     /* final position */
+  }
+}
+
+.nav-item {
+  
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: white;
+  font-size: 13px;
+  font-family: Sans-serif;
+  text-align: center;
+  line-height: 1;
+  padding-bottom: 5px;
+  cursor: pointer;
+  animation: slideUp 0.4s ease forwards;
+  opacity: 0; /* start hidden */
+}
+
+/* Optional: stagger animation for each item */
+.nav-links a:nth-child(1) { animation-delay: 0.1s; }
+.nav-links a:nth-child(2) { animation-delay: 0.1s; }
+.nav-links a:nth-child(3) { animation-delay: 0.1s; }
+.nav-links a:nth-child(4) { animation-delay: 0.1s; }
+.nav-links a:nth-child(5) { animation-delay: 0.1s; }
+.nav-links a:last-child {
+  animation: none;
+  opacity: 1;  /* Always visible */
+  transform: none;
+}
+
+
+
+.arrow-icon {
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+.arrow-icon path {
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Move the last nav item (register logo) to the right */
+.nav-links a:last-child {
+  margin-left: auto; /* pushes it to the right */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Needed for underline positioning */
+  height: 47px;
+
+}
+
+/* Center underline under the logo */
+.nav-links a:last-child::after {
+  content: '';
+  position: absolute;
+  left:37%;              /* Center horizontally */
+  
+  transform: translateX(-50%);
+  bottom: 0;               /* Stick to bottom of navbar */
+  width: 50px;             /* Adjust to logo width */
+  height: 1px;
+  top: 43px;
+  background-color: white;
+}
+
+
+
+/* animated underline */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 40%;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 1px;
+  top: 43px;
+  width: 114%; /* Fixed underline length */
+  background-color: white;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  
+}
+
+
+/* On hover or active */
+.nav-item:hover::after,
+.nav-item.active::after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+
+
+
+
+img {
+    height: 40px;
+    
+     display: flex;
+     align-items: center;
+    margin-left: 30px;
+}
+
+.register {
+    height: 40px;
+    margin-top: 1px;
+    margin-right: 68%;
+    display: flex;
+    align-items: center;
+}
+
+/* Search bar inside navbar */
+.search-box {
+  position: relative;
+  width: 450px;  /* adjust size */
+  display: flex;
+  align-items: center;
+  margin-top: 1.5%;
+
+}
+
+
+
+.search-box input[type="text"] {
+  width: 100%;
+  padding: 10px 50px 10px 15px; /* padding-right for button */
+  border: none;
+  border-radius: 8px; /* rounded corners */
+  font-size: 14px;
+  background: #161616; /* dark background like screenshot */
+  color: #fff;
+  transition: all 0.3s ease; 
+}
+
+
+
+.search-box input::placeholder {
+  color: #aaa;
+}
+
+.search-btn {
+  position: absolute;
+  right: 5px;
+
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 6px;  /* square with slightly rounded edges */
+  background: #2d2d2d; /* darker square background */
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+      
+  justify-content: center;     /* center horizontally */
+  cursor: pointer;
+  padding: 0;
+  
+}
+
+/* Hover effect for the whole box */
+.search-box:hover input[type="text"] {
+  background: #444;          /* lighter background */
+  box-shadow: 0 0 8px #00c3ff; /* glowing effect */
+}
+
+.search-btn:hover {
+  background: #555;
+  
+}
+
+
+
+
+
+
+/* Scoreboard Box */
+.scoreboard {
+  width: 380px;
+  padding: 20px;
+    margin: 40px auto;
+  background: repeating-linear-gradient(
+    45deg,
+    #1c3b1c,
+    #1c3b1c 10px,
+    #163316 10px,
+    #163316 20px
+  );
+  border: 3px solid transparent;
+  border-radius: 4px;
+  background-clip: padding-box, border-box;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, red, blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* X and O Icons */
+.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 40px;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.icons .x {
+  color: red;
+  text-shadow: 0 0 15px red, 0 0 30px red;
+  margin-left: 11.3%;
+}
+.icons .o {
+  color: #00aaff;
+  text-shadow: 0 0 15px #00aaff, 0 0 30px #00aaff;
+  margin-right: 9.3%;
+  
+}
+
+/* Score Numbers */
+.scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 28px;
+  color: white;
+  gap: 25px;
+}
+.scores .colon {
+  margin: 0 10px;
+}
+
+
+/* Control Buttons */
+.controls {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 10px 20px;
+  border: 2px solid #333;
+  border-radius: 58px;
+  background: #222;
+  width: 15%;
+}
+.controls button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+
+
+.controls .x-btn {
+  background: red;
+  color: white;
+  box-shadow: 0 0 15px red;
+}
+
+
+.controls .o-btn {
+  background: #00cc66;
+  color: white;
+  box-shadow: 0 0 15px #00cc66;
+}
+
+/* Game Area */
+.game-area {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(5, 80px);
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+.grid div {
+  width: 80px;
+  height: 90px;
+  background: #333;
+  border-radius: 6px;
+  z-index: 2; /* ✅ force above X and O */
+  position: relative;
+  opacity: 0.8;
+}
+
+/* Red glowing X grid */
+.red-x {
+  position: relative;
+}
+.red-x::before {
+  content: "X";
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 390px;
+  font-weight: bold;
+  color: red;
+  opacity: 1;
+  text-shadow: 0 0 30px red, 0 0 50px red;
+  z-index: 1; /* goes BEHIND grid */
+}
+
+/* Blue glowing O grid */
+.blue-o {
+  position: relative;
+}
+.blue-o::before {
+  content: "〇";
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+  font-size: 350px;
+  font-weight: bold;
+  color: #00aaff;
+  opacity: 1;
+  text-shadow: 0 0 30px #00aaff, 0 0 50px #00aaff;
+  z-index: 1; /* goes BEHIND grid */
+}
+
+/* Vertical Glow Bars */
+.red-bar, .blue-bar {
+  width: 8px;
+  height: 530px;
+  border-radius: 5px;
+}
+.red-bar {
+  background: red;
+  box-shadow: 0 0 25px red, 0 0 50px red;
+
+}
+.blue-bar {
+  background: #00aaff;
+  box-shadow: 0 0 25px #00aaff, 0 0 50px #00aaff;
+}
+
+
+
+
+.footer {
+  background-color: #000000;
+  width: 100%;
+  height: 70%;
+  box-sizing: border-box;
+  color: #eee;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* 📱 Responsive Design for Tablets and Phones */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 15px;
+    margin-left: -10%;
+    
+  }
+  .search-box {
+    width: 500px;
+    
+  }
+  .scoreboard {
+    width: 80%;
+    margin-top: 50%;
+    margin-left: 11%;
+    align-self: center;
+    align-items: center;
+  
+  }
+  .controls {
+    width: 40%;
+    gap: 0px;
+  }
+  .game-area {
+    gap: 40px;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(5, 60px);
+    gap: 0px;
+  }
+  .grid div {
+    width: 60px;
+    height: 70px;
+  }
+  .red-x::before {
+    font-size: 250px;
+  }
+  .blue-o::before {
+    font-size: 230px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 11.94px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .search-box {
+    width: 200px;
+
+  }
+  .controls {
+    width: 60%;
+    gap: 15px;
+  }
+  .game-area {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 15px;
+  }
+  .grid div {
+    width: 50px;
+    height: 55px;
+  }
+  .red-x::before,
+  .blue-o::before {
+    font-size: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    margin-top:70%;
+  }
+  .search-box {
+    width: 200px;
+  }
+  .controls {
+    width: 80%;
+    gap: 80px;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 40px);
+    grid-template-rows: repeat(5, 40px);
+    gap: 10px;
+  }
+  .grid div {
+    width: 40px;
+    height: 45px;
+  }
+  .red-x::before,
+  .blue-o::before {
+    font-size: 140px;
+  }
+  .footer {
+    font-size: 12px;
+    padding: 15px;
+  }
+}

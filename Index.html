@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+
+       <div>
+       <img src="../FrontPageImages/shapes_triangle_dark_red.png" alt="Logo">
+       </div>
+
+       <div class="nav-links">
+
+       <a class="nav-item" href="../Index.html"> WELCOME <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
+       <path d="M7 10l5 5 5-5" /></svg></a>
+
+       <a class="nav-item" href="../About Us/Index.html"> ABOUT US <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
+       <path d="M7 10l5 5 5-5" /></svg></a>
+
+       <a class="nav-item" href="../Rules/Index.html"> RULES <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
+       <path d="M7 10l5 5 5-5" /></svg></a>
+
+       <a class="nav-item" href="../Balance/Index.html"> BALANCE <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
+       <path d="M7 10l5 5 5-5" /></svg></a>
+
+       <a class="nav-item" href="../Voting/Index.html"> VOTING <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
+       <path d="M7 10l5 5 5-5" /></svg></a>
+
+
+
+
+
+
+<form class="search-form" onsubmit="return searchSite(event)">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Games, Rules & Winning Price">
+    <button type="submit" class="search-btn">
+      🔍
+    </button>
+  </div>
+</form>
+
+<script>
+function searchSite(event) {
+  event.preventDefault(); // prevent form refresh
+  let query = document.getElementById("searchInput").value.toLowerCase().trim();
+
+  if (query.includes("welcome")) {
+    window.location.href = "../Index.html";     // change to your actual page/section
+  } 
+  else if (query.includes("login")) {
+    window.location.href = "../Register/Index.html";     // change link
+  } 
+  else if (query.includes("register")) {
+    window.location.href = "../Register/Index.html";     // change link
+  }
+  else if (query.includes("rule")) {
+    window.location.href = "../Rules/Index.html";     // change link
+  }
+  else if (query.includes("rules")) {
+    window.location.href = "../Rules/Index.html";     // change link
+  }
+  else if (query.includes("vote")) {
+    window.location.href = "../Voting/Index.html";    // change link
+  } 
+  else if (query.includes("voting")) {
+    window.location.href = "../Voting/Index.html";    // change link
+  }
+  else if (query.includes("balance")) {
+    window.location.href = "../Balance/Index.html";   // example link
+  } 
+  else if (query.includes("About US")) {
+    window.location.href = "../About Us/Index.html";   // example link
+  } 
+  else {
+    alert("No matching page found!");
+  }
+
+  return false; // stop form submission
+}
+</script>
+
+
+
+
+
+
+
+       <a class="nav-item" href="../Register/Index.html">  <img class= "register" src="../FrontPageImages/Register (1).png" alt="Register" /> </a>
+
+       </div>
+    </div>
+
+
+
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div class="icons">
+      <span class="x">X</span>
+      <span class="o">〇</span>
+    </div>
+    <div class="scores">
+      <span>00</span>
+      <span class="colon">:</span>
+      <span>00</span>
+    </div>
+  </div>
+
+  <!-- Control Buttons -->
+  <div class="controls">
+    <button class="x-btn">X</button>
+    <button class="o-btn">〇</button>
+  </div>
+
+  <!-- Game Area -->
+  <div class="game-area">
+    <div class="grid red-x">
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+    </div>
+    <div class="red-bar"></div>
+    <div class="blue-bar"></div>
+    <div class="grid blue-o">
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+      <div></div><div></div><div></div>
+    </div>
+  </div>
+
+  
+<br><br><br><br>
+<footer class="footer">
+    <div class="footer-content">
+
+        <br><br><br><br>
+      <p>2025 Squid Game Inc. All Rights Reserved.</p>
+      <br>
+      <p>Webside Made by Devesh Sharma</p>
+      <br>
+      <p>Contect Details :-  Mobile Number - 9625745248     |     Email ID - deveshsharma9958@gmail.com <p>
+      <br>
+      <div class="footer-links">
+        <a href="#">Code Used</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Me</a>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+<script src="app.js"></script>
+</html>
+
+</body>
+</html>
